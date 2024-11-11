@@ -15,7 +15,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://aigeek.org/images/image.png">
 <meta property="article:published_time" content="2024-11-04T11:14:14.000Z">
-<meta property="article:modified_time" content="2024-11-04T12:40:14.551Z">
+<meta property="article:modified_time" content="2024-11-04T12:55:12.202Z">
 <meta property="article:author" content="Aigeek">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://aigeek.org/images/image.png">
@@ -82,6 +82,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2024/11/11/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8C%87%E6%95%B0%E6%8A%A5%E5%91%8A_2024/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
@@ -176,7 +178,7 @@
 <p> <strong>目前体验待改善点（2）：</strong> 当前只能识别到可以转换为文字的语音信息，无法识别到非文本类的语音信息。 <strong>可关注的方向：1.</strong> 训练端到端模型，tts的回复包含对应的感情。 <strong>2.</strong> 用户的情感和非文本信息与用户意图结合训练 意图的端到端模型，输出的待执行意图包含相关非文本的结果。也就是在不同的用户情感或健康状态下，模型回复不同的结果，比如闲聊包含用户健康改善建议或推荐更适合用户情感的节目等。</p>
 <h4 id="2-1-3-设备在输出意图识别和执行的过程中，用户通过关键词打断本次意图的后续任务"><a href="#2-1-3-设备在输出意图识别和执行的过程中，用户通过关键词打断本次意图的后续任务" class="headerlink" title="2.1.3 设备在输出意图识别和执行的过程中，用户通过关键词打断本次意图的后续任务"></a>2.1.3 设备在输出意图识别和执行的过程中，用户通过关键词打断本次意图的后续任务</h4><p> <strong>目前体验待改善点(1):</strong> 已经在交谈中了，是不是不需要通过唤醒来打断后，再进行识别意图？ <strong>可关注的方向：</strong> 端侧大模型实时拾音<br>并理解用户意图，根据用户意图确认是否继续和用户进行聊天或者打断当前的聊天而响应用户最新的用户聊天内容。</p>
 <p> <strong>目前体验待改善点(2):</strong> 是否可以通过“等一下”、“不对”、“等等”等进行意图中的打断，而不仅仅是唤醒词来打断？</p>
-<h4 id="2-1-4-设备语义理解模块对用户音频进行意图理解"><a href="#2-1-4-设备语义理解模块对用户音频进行意图理解" class="headerlink" title="2.1.4 设备语义理解模块对用户音频进行意图理解"></a>2.1.4 设备语义理解模块对用户音频进行意图理解</h4><p>当前的设备使用云端或本地大模型进行用户音频理解，理解后转换为相应的action，分发到各个应用。</p>
+<h4 id="2-1-4-设备语义理解模块对用户音频进行意图理解"><a href="#2-1-4-设备语义理解模块对用户音频进行意图理解" class="headerlink" title="2.1.4 设备语义理解模块对用户音频进行意图理解"></a>2.1.4 设备语义理解模块对用户音频进行意图理解</h4><p>当前的设备使用云端或本地大模型进行用户音频理解，理解后转换为相应的action，分发到各个应用。<br><strong>目前体验待改善点:</strong> 当前的大模型理解音频，一般是先将语音转为文字，再对文字做意图理解，针对理解的文字做回复。而实际的用户侧需求包括但不限于：<code>理解音频输出音频</code>，<code>理解音频后执行指令并输出音频</code>。<br>对于第一种<code>理解音频输出音频</code>，一般限于知识问答类。当前的普遍操作：音频转文字，文字理解，搜索知识库后输出文字，文字转音频，最后做回复给用户的音频播报操作。 <strong>可关注的方向</strong> 音频输入并结合多模态输入、到音频输出的知识问答大模型<br>对于第二种<code>理解音频后执行指令并输出音频</code>，一般限于用户意图执行类：在文字理解后，是搜索知识库后输出文字和执行的指令意图，文字部分转音频，做音频播报回复给用户，而指令部分经由设备进行执行操作。 <strong>可关注的方向</strong> 音频输入并结合多模态输入、到音频输出的领域大模型+知识问答大模型。</p>
 <h3 id="2-2-意图转换部分"><a href="#2-2-意图转换部分" class="headerlink" title="2.2 意图转换部分"></a>2.2 意图转换部分</h3><p>各应用接收到语音发出的action后，映射转换为应用自有api</p>
 <h3 id="2-3-意图执行部分"><a href="#2-3-意图执行部分" class="headerlink" title="2.3 意图执行部分"></a>2.3 意图执行部分</h3><p>各应用自有api调用系统api，执行系统接口实现用户意图</p>
 
